@@ -8,14 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     const game = new TwentyFourtyEight(4,4);
     const la = new TwentyFourtyEightGui(game);
+    
     la.start();
-
     la.keydown();
+    
     setInterval(() => {
         la.draw(ctx);
     }, 16);
-    // window.la = la;
-
-    // gui = GUI(game)
-    // gui.start()
 });

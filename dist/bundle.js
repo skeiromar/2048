@@ -121,7 +121,6 @@ var OFFSETS = {
 };
 
 function merge(line1) {
-  // merges a single row/ column
   var line = line1.filter(function (i) {
     return i !== 0;
   });
@@ -130,10 +129,7 @@ function merge(line1) {
     if (line1[i] === 0) {
       line.push(line1[i]);
     }
-  } // add two like values 
-  // remove the value that was added 
-  // add 0 at the end 
-
+  }
 
   var _loop = function _loop(_i) {
     if (line[_i] === line[_i + 1]) {
@@ -206,8 +202,6 @@ function () {
   }, {
     key: "reset",
     value: function reset() {
-      // self._grid = [[0 for dummy_num in range(self._grid_width)]
-      // for dummy_num in range(self._grid_height)]
       this._grid = _toConsumableArray(Array(4).keys()).map(function (e) {
         return _toConsumableArray(Array(4).keys()).map(function (e) {
           return 0;
@@ -232,8 +226,6 @@ function () {
   }, {
     key: "move",
     value: function move(direction) {
-      console.log(this.toString());
-
       for (var key in this._init_tiles) {
         if (direction === key) {
           for (var et = 0; et < this._init_tiles[key].length; et++) {
@@ -244,7 +236,6 @@ function () {
             var row = 0;
 
             for (var tile = 0; tile < this._width_height_max; tile++) {
-              // debugger
               offsets.push([each_tile[0] + OFFSETS[key][0] * col, each_tile[1] + OFFSETS[key][1] * row]);
 
               if (tile < this._grid_height - 1) {
@@ -281,13 +272,10 @@ function () {
       if (this._is_moved) {
         this.new_tile();
       }
-
-      console.log(this.toString());
     }
   }, {
     key: "new_tile",
     value: function new_tile() {
-      // debugger
       var elem = 42;
       var zero_ind = 42;
 
@@ -317,13 +305,7 @@ function () {
   return TwentyFourtyEight;
 }();
 
-/* harmony default export */ __webpack_exports__["default"] = (TwentyFourtyEight); // // const square = new Rectangle(10, 10);
-// const try1 = new TwentyFourtyEight(4,4);
-// console.log(try1.toString());
-// console.log(try1._grid);
-// console.log(try1._init_tiles);
-// // try1.move("LEFT");
-// console.log(try1.toString());
+/* harmony default export */ __webpack_exports__["default"] = (TwentyFourtyEight);
 
 /***/ }),
 
@@ -336,14 +318,11 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _gameLogic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gameLogic */ "./src/gameLogic.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
- // const tilesAsset = document.getElementById("tile-asset");
 
 var TILE_SIZE = 100;
 var HALF_TILE_SIZE = TILE_SIZE / 2;
@@ -361,23 +340,8 @@ function () {
 
     this.tilesAsset = document.getElementById("tile-asset");
     this._rows = game.get_grid_height();
-    this._cols = game.get_grid_width(); // this._frame = simplegui.create_frame('2048',
-    //                 this._cols * TILE_SIZE + 2 * BORDER_SIZE,
-    //                 this._rows * TILE_SIZE + 2 * BORDER_SIZE)
-    // this._frame.add_button('New Game', this.start)
-    // this._frame.set_keydown_handler(this.keydown)
-    // this._frame.set_draw_handler(this.draw)
-    // this._frame.set_canvas_background("#BCADA1")
-    // this._frame.start()
-
-    this._game = game; // this._game.move("LEFT");
-
-    this._directions = {
-      "ArrowUp": 'UP',
-      "ArrowDown": DOWN,
-      "ArrowLeft": "LEFT",
-      "ArrowRight": RIGHT
-    };
+    this._cols = game.get_grid_width();
+    this._game = game;
   }
 
   _createClass(TwentyFourtyEightGui, [{
@@ -385,54 +349,17 @@ function () {
     value: function keydown(key) {
       var _this = this;
 
-      // for dirstr, dirval in self._directions.items():
-      //     if key == simplegui.KEY_MAP[dirstr]:
-      //         self._game.move(dirval)
-      //         break
       document.addEventListener('keydown', function (event) {
         console.log(_this);
-        if ("ArrowLeft" === event.key) _this._game.move("LEFT");else if ("ArrowRight" === event.key) _this._game.move("RIGHT");else if ("ArrowUp" === event.key) _this._game.move("UP");else if ("ArrowDown" === event.key) _this._game.move("DOWN"); // for (let key in this._directions) {
-        //     // debugger
-        //     if (key === event.key) {
-        //         // debugger
-        //         this._game.move(this._directions.key);
-        //         // debugger
-        //         break;
-        //     }
-        // }
+        if ("ArrowLeft" === event.key) _this._game.move("LEFT");else if ("ArrowRight" === event.key) _this._game.move("RIGHT");else if ("ArrowUp" === event.key) _this._game.move("UP");else if ("ArrowDown" === event.key) _this._game.move("DOWN");
       }, false);
-    }
-  }, {
-    key: "test",
-    value: function test() {
-      var try1 = new _gameLogic__WEBPACK_IMPORTED_MODULE_0__["default"](4, 4);
-      window.try1 = try1;
-      console.log(try1.toString());
-      console.log(try1._grid);
-      console.log(try1._init_tiles); // try1.move("LEFT");
-
-      console.log(try1.toString());
     }
   }, {
     key: "draw",
     value: function draw(ctx) {
-      // for row in range(self._rows):
-      // for col in range(self._cols):
-      //     tile = self._game.get_tile(row, col)
-      //     if tile == 0:
-      //         val = 0
-      //     else:
-      //         val = int(math.log(tile, 2))
-      //     canvas.draw_image(self._tiles,
-      // [HALF_TILE_SIZE + val * TILE_SIZE, HALF_TILE_SIZE],
-      // [TILE_SIZE, TILE_SIZE],
-      // [col * TILE_SIZE + HALF_TILE_SIZE + BORDER_SIZE,
-      //  row * TILE_SIZE + HALF_TILE_SIZE + BORDER_SIZE],
-      // [TILE_SIZE, TILE_SIZE])
       function getBaseLog(y, x) {
         return Math.log(y) / Math.log(x);
-      } // debugger
-
+      }
 
       for (var row = 0; row < this._rows; row++) {
         for (var col = 0; col < this._cols; col++) {
@@ -444,13 +371,11 @@ function () {
             val = 0;
           } else {
             val = Math.floor(getBaseLog(tile, 2));
-          } // debugger
-
+          }
 
           ctx.drawImage(this.tilesAsset, 50 + HALF_TILE_SIZE + val * TILE_SIZE - 100, HALF_TILE_SIZE - 50, TILE_SIZE, TILE_SIZE, col * TILE_SIZE + HALF_TILE_SIZE + BORDER_SIZE - 45, row * TILE_SIZE + HALF_TILE_SIZE + BORDER_SIZE - 45, TILE_SIZE, TILE_SIZE);
         }
-      } // ctx.drawImage(this.tilesAsset, 33, 71);
-
+      }
     }
   }, {
     key: "start",
@@ -462,7 +387,7 @@ function () {
   return TwentyFourtyEightGui;
 }();
 
-/* harmony default export */ __webpack_exports__["default"] = (TwentyFourtyEightGui); // const square = new Rectangle(10, 10);
+/* harmony default export */ __webpack_exports__["default"] = (TwentyFourtyEightGui);
 
 /***/ }),
 
@@ -490,9 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
   la.keydown();
   setInterval(function () {
     la.draw(ctx);
-  }, 16); // window.la = la;
-  // gui = GUI(game)
-  // gui.start()
+  }, 16);
 });
 
 /***/ })

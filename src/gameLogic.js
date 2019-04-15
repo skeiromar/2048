@@ -1,5 +1,4 @@
 
-
 const UP = 1;
 const DOWN = 2;
 const LEFT = 3;
@@ -14,8 +13,6 @@ const OFFSETS = {
 
 function merge(line1) {
 
-    // merges a single row/ column
-
     let line = line1.filter(i => i !== 0);
 
     for (let i = 0; i < line1.length; i++) {
@@ -23,9 +20,6 @@ function merge(line1) {
             line.push(line1[i]);
         }
     }
-    // add two like values 
-    // remove the value that was added 
-    // add 0 at the end 
 
     for (let i = 0; i < line.length-1; i++) {
         if (line[i] === line[i+1]) {
@@ -72,12 +66,8 @@ class TwentyFourtyEight {
 
     reset() {
 
-        // self._grid = [[0 for dummy_num in range(self._grid_width)]
-        // for dummy_num in range(self._grid_height)]
-
         this._grid = [...Array(4).keys()].map(e => [...Array(4).keys()].map(e => 0));
-        
-        
+    
         this.new_tile();
         this.new_tile();
     }
@@ -92,7 +82,6 @@ class TwentyFourtyEight {
     }
     
     move(direction) {
-        console.log(this.toString());
         for (let key in this._init_tiles) {
             if (direction === key) {
                 for (let et = 0; et < this._init_tiles[key].length; et++) {
@@ -102,7 +91,6 @@ class TwentyFourtyEight {
                     let col = 0;
                     let row = 0;
                     for (let tile = 0; tile < this._width_height_max; tile++) {
-                        // debugger
                         offsets.push([each_tile[0] + OFFSETS[key][0] * col,
                             each_tile[1] + OFFSETS[key][1] * row]);
                         
@@ -133,11 +121,9 @@ class TwentyFourtyEight {
         if (this._is_moved) {
             this.new_tile();
         }
-        console.log(this.toString());
 
     }
     new_tile() {
-        // debugger
         let elem = 42;
         let zero_ind = 42;
         let weighted_list = [...Array(100).keys()].map(i => i < 90 ? 2 : 4);
@@ -160,14 +146,3 @@ class TwentyFourtyEight {
 
 }
 export default TwentyFourtyEight;
-
-// // const square = new Rectangle(10, 10);
-// const try1 = new TwentyFourtyEight(4,4);
-
-// console.log(try1.toString());
-// console.log(try1._grid);
-// console.log(try1._init_tiles);
-
-// // try1.move("LEFT");
-
-// console.log(try1.toString());

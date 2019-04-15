@@ -29,3 +29,7 @@ body {
 .hid-images {
     visibility: hidden;
 }
+
+#test {
+    color: black;
+}
