@@ -18,7 +18,6 @@ class TwentyFourtyEightGui {
     keydown(key) {
 
         document.addEventListener('keydown', (event) =>  {
-            console.log(this);
             if ("ArrowLeft" === event.key) 
                 this._game.move("LEFT");
             else if ("ArrowRight" === event.key)

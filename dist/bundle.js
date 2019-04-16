@@ -350,7 +350,6 @@ function () {
       var _this = this;
 
       document.addEventListener('keydown', function (event) {
-        console.log(_this);
         if ("ArrowLeft" === event.key) _this._game.move("LEFT");else if ("ArrowRight" === event.key) _this._game.move("RIGHT");else if ("ArrowUp" === event.key) _this._game.move("UP");else if ("ArrowDown" === event.key) _this._game.move("DOWN");
       }, false);
     }

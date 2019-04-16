@@ -24,6 +24,7 @@ body {
     display: flex;
     margin: auto;
     margin-top: 5%;
+    border-radius: 1%;
 }
 
 .hid-images {
@@ -32,4 +33,34 @@ body {
 
 #test {
     color: black;
+}
+
+.github-logo-a {
+    
+}
+
+.github-logo-img {
+    /* display: flex; */
+    /* margin-left: 50px; */
+    /* align-self: center; */
+    left: 45%;
+    position: fixed;
+    width: 55px;
+    height: 100px;
+}
+.github-logo-img:hover {
+    transform: rotate(360deg);
+    transition: all 1s ease;
+}
+
+.ln-logo-img {
+    position: fixed;
+    margin-left: -20px;
+    /* margin-right: 50px; */
+    width: 100px;
+    padding: 0;
+}
+.ln-logo-img:hover {
+    transform: rotate(360deg);
+    transition: all 1s ease;
 }
