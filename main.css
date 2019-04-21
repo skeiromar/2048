@@ -23,7 +23,7 @@ body {
     
     display: flex;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 1%;
     border-radius: 1%;
 }
 
@@ -40,13 +40,8 @@ body {
 }
 
 .github-logo-img {
-    /* display: flex; */
-    /* margin-left: 50px; */
-    /* align-self: center; */
-    left: 45%;
-    position: fixed;
-    width: 55px;
-    height: 100px;
+    width: 75px;
+    margin-right: 25px;
 }
 .github-logo-img:hover {
     transform: rotate(360deg);
@@ -54,13 +49,18 @@ body {
 }
 
 .ln-logo-img {
-    position: fixed;
-    margin-left: -20px;
-    /* margin-right: 50px; */
-    width: 100px;
-    padding: 0;
+    width: 75px;
+    margin-left: 25px;
 }
 .ln-logo-img:hover {
     transform: rotate(360deg);
     transition: all 1s ease;
+}
+#title {
+    color: black;
+    font-size: 48px;
+}
+.abt-container {
+    bottom: 0%;
+    margin-top: -50px;
 }
